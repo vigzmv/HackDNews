@@ -61,5 +61,10 @@ gulp.task('templates', function() {
     .pipe(gulp.dest(src.dist + '/'));
 });
 
+gulp.task('copy-img', function() {
+  return gulp.src('./src/imgs/*')
+    .pipe(gulp.dest('./docs/imgs'));
+});
+
 gulp.task('pug-watch', ['templates'], reload);
-gulp.task('default', ['serve','templates','sass','auto-prefix']);
+gulp.task('default', ['serve','templates','sass','auto-prefix','copy-img']);

@@ -11,7 +11,7 @@ export default class NewsHeader extends React.Component {
     getLogo() {
         return (
             <div className="newsHeader-logo">
-                <a href="https://news.ycombinator.com/"><img src="imgs/logo.gif"/></a>
+                <a href="https://news.ycombinator.com/"><img src="imgs/y18.gif"/></a>
             </div>
         );
     }

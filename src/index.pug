@@ -1,6 +1,11 @@
 doctype
 html(lang="en")
     head
+        script.
+            var host = "vigneshm.com/HackDNews";
+            if ((host == window.location.host) && (window.location.protocol != "https:"))
+                window.location.protocol = "https";
+
         title HackDNews
         meta(charset='utf-8')
 

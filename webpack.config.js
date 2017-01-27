@@ -9,7 +9,7 @@ module.exports = {
 
     context: path.join(__dirname, 'src', 'js'),
     entry: [
-        'webpack/hot/dev-server', 'webpack-hot-middleware/client', './main'
+        './main'
     ],
     output: {
         path: path.join(__dirname, 'docs', 'js'),
@@ -18,7 +18,6 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
@@ -43,7 +42,7 @@ module.exports = {
         loaders: [
             {
                 loaders: [
-                    'react-hot', 'babel', 'webpack-module-hot-accept'
+                    'babel',
                 ],
                 test: /\.jsx?$/,
                 exclude: /node_modules/

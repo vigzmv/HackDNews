@@ -18,10 +18,10 @@ export default class NewsItem extends React.Component {
         return (
             <div className="newsItem-subtext">
                 {this.props.item.score}
-                points by
+                &nbsp;points by&nbsp;
                 <a href={'https://news.ycombinator.com/user?id=' + this.props.item.by}>{this.props.item.by}</a>
-                {Moment.utc(this.props.item.time * 1000).fromNow()}
-                | {this.getCommentLink()}
+                &nbsp;{Moment.utc(this.props.item.time * 1000).fromNow()}
+                &nbsp;| {this.getCommentLink()}
             </div>
         );
     }

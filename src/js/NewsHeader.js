@@ -1,13 +1,7 @@
 import React from 'react';
 
 export default class NewsHeader extends React.Component {
-    render() {
-        return (
-            <div className="newsHeader">
-                I am NewsHeader.
-            </div>
-        );
-    }
+
     getLogo() {
         return (
             <div className="newsHeader-logo">
@@ -18,7 +12,7 @@ export default class NewsHeader extends React.Component {
     getTitle() {
         return (
             <div className="newsHeader-title">
-                <a className="newsHeader-textLink" href="https://news.ycombinator.com/">HackDNews</a>
+                <a className="newsHeader-textLink" href="https://news.ycombinator.com/"> HackDNews</a>
             </div>
         );
     }
@@ -50,9 +44,6 @@ export default class NewsHeader extends React.Component {
             }, {
                 name: 'jobs',
                 url: 'jobs'
-            }, {
-                name: 'submit',
-                url: 'submit'
             }
         ];
 

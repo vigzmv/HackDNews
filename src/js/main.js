@@ -19,14 +19,17 @@ fetch('https://hacker-news.firebaseio.com/v0/topstories.json').then(parent => {
     return parent.text();
 
 }).then(story => {
-    story.slice(1).split(",").slice(0, 30).map(itemsId => fetch('https://hacker-news.firebaseio.com/v0/item/' + itemsId + '.json').then(value => {
+    story.slice(1).split(",").slice(0, 30)
+    .map(itemsId => fetch('https://hacker-news.firebaseio.com/v0/item/' + itemsId + '.json')
+    .then(value => {
         return value.json();
-    }).then(value => {
+    })
+    .then(value => {
         stories.push(value);
         if (stories.length == 30) {
             render(
                 <NewsList items={stories}/>, document.querySelector('.content'));
         }
-        return items;
+        return value;
     }));
 });

@@ -1,18 +1,60 @@
 import React from 'react';
+import {render} from 'react-dom';
+import NewsList from './NewsList.js';
 
+function getStories(storiesName) {
+
+    render(
+        <div>
+            <NewsHeader/>
+            <div className="loading">
+                <img className="gears" src="imgs/gears.gif"/>
+            </div>
+        </div>,
+     document.querySelector('.content'));
+
+    const stories = [];
+
+    let count = 30;
+
+    console.log(storiesName);
+
+    fetch('https://hacker-news.firebaseio.com/v0/' + storiesName + '.json').then(parent => {
+        return parent.text();
+
+    }).then(story => {
+        if (story.slice(1).split(",").length < 31)
+            count = story.slice(1).split(",").length - 1;
+
+        story.slice(1).split(",").slice(0, count)
+        .map(itemsId => fetch('https://hacker-news.firebaseio.com/v0/item/' + itemsId + '.json').then(value => {
+            return value.json();
+        })
+        .then(value => {
+            stories.push(value);
+            if (stories.length == count) {
+                render(
+                    <NewsList items={stories}/>, document.querySelector('.content'));
+            }
+            return value;
+        }));
+    });
+
+}
 export default class NewsHeader extends React.Component {
 
     getLogo() {
         return (
             <div className="newsHeader-logo">
-                <a href="https://news.ycombinator.com/"><img src="imgs/y18.gif"/></a>
+                <a href="https://vigneshm.com/HackDNews/"><img src="imgs/y18.gif"/></a>
             </div>
         );
     }
     getTitle() {
         return (
             <div className="newsHeader-title">
-                <a className="newsHeader-textLink" href="https://news.ycombinator.com/"> HackDNews</a>
+                <a className="newsHeader-textLink" href="https://vigneshm.com/HackDNews/">
+                    HackDNews</a>
             </div>
         );
     }
@@ -31,27 +73,28 @@ export default class NewsHeader extends React.Component {
         var navLinks = [
             {
                 name: 'new',
-                url: 'newest'
+                storiesName: 'newstories'
             }, {
-                name: 'comments',
-                url: 'newcomments'
+                name: 'top',
+                storiesName: 'topstories'
             }, {
                 name: 'show',
-                url: 'show'
+                storiesName: 'showstories'
             }, {
                 name: 'ask',
-                url: 'ask'
+                storiesName: 'askstories'
             }, {
                 name: 'jobs',
-                url: 'jobs'
+                storiesName: 'jobstories'
             }
         ];
 
+        // href={"https://news.ycombinator.com/" + navLink.url}
         return (
             <div className="newsHeader-nav">
                 {navLinks.map(function(navLink) {
                     return (
-                        <a key={navLink.url} className="newsHeader-navLink newsHeader-textLink" href={"https://news.ycombinator.com/" + navLink.url}>
+                        <a key={navLink.url} className="newsHeader-navLink newsHeader-textLink" onClick={getStories.bind(null, navLink.storiesName)} href="#">
                             {navLink.name}
                         </a>
                     );

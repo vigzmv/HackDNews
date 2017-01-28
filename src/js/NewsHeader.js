@@ -73,7 +73,7 @@ export default class NewsHeader extends React.Component {
         return (
             <div className="newsHeader-login">
                 <a className="newsHeader-textLink" href="https://news.ycombinator.com/login?goto=news">login</a>
-                &nbsp;
+                &nbsp;&nbsp;
             </div>
         );
     }

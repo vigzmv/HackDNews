@@ -2,6 +2,15 @@ import $ from 'jquery';
 import React from 'react'
 import {render} from 'react-dom';
 import NewsList from './NewsList.js';
+import NewsHeader from './NewsHeader.js'
+
+render(
+    <div>
+    <NewsHeader/>
+    <div className="loading">
+        <img className="gears" src="imgs/gears.gif" />
+    </div>
+</div>, document.querySelector('.content'));
 
 function get(url) {
     return Promise.resolve($.ajax(url));

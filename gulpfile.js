@@ -35,7 +35,7 @@ gulp.task('serve', function() {
 
     gulp.watch(src.sass, ['sass']);
     gulp.watch(src.pug, ['pug-watch']);
-    gulp.watch(src.csss, ['auto-prefix']);
+    // gulp.watch(src.csss, ['auto-prefix']);
     gulp.watch(src.html).on('change', reload);
 });
 
@@ -46,11 +46,11 @@ gulp.task('sass', function() {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('auto-prefix', function() {
-    gulp.src(src.csss)
-    .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
-    .pipe(gulp.dest(src.css))
-});
+// gulp.task('auto-prefix', function() {
+//     gulp.src(src.csss)
+//     .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
+//     .pipe(gulp.dest(src.css))
+// });
 
 gulp.task('templates', function() {
     return gulp.src(src.pug)
@@ -64,4 +64,4 @@ gulp.task('copy-img', function() {
 });
 
 gulp.task('pug-watch', ['templates'], reload);
-gulp.task('default', ['serve','templates','sass','auto-prefix','copy-img']);
+gulp.task('default', ['serve','templates','sass','copy-img']);

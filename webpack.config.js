@@ -36,7 +36,7 @@ module.exports = {
             },
             exclude: [/\.min\.js$/gi] // skip pre-minified libs
         }),
-        new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/])
+        new webpack.IgnorePlugin(/^\.\/locale$/)
     ],
     module: {
         loaders: [

@@ -14,10 +14,7 @@ function getStories(storiesName) {
      document.querySelector('.content'));
 
     const stories = [];
-
     let count = 30;
-
-    console.log(storiesName);
 
     fetch('https://hacker-news.firebaseio.com/v0/' + storiesName + '.json').then(parent => {
         return parent.text();

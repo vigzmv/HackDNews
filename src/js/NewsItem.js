@@ -62,9 +62,11 @@ export default class NewsItem extends React.Component {
     getVote() {
         return (
             <div className="newsItem-vote">
+                &nbsp;
                 <a href={'https://news.ycombinator.com/vote?for=' + this.props.item.id + '&dir=up&goto=news'}>
                     <img src="imgs/grayarrow.gif" width="10"/>
                 </a>
+                &nbsp;&nbsp;&nbsp;
             </div>
         );
     }

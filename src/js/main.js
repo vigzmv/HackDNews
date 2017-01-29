@@ -18,7 +18,6 @@ fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
     .then(parent => {
         return parent.text();
 })
-
 .then(story => {
     if (story.slice(1).split(",").length < 31)
         count = story.slice(1).split(",").length - 1;

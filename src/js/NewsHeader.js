@@ -103,7 +103,7 @@ export default class NewsHeader extends React.Component {
     getLogin() {
         return (
             <div className="newsHeader-login">
-                <a className="newsHeader-textLink" href="https://news.ycombinator.com/login?goto=news">login</a>
+                <a className="newsHeader-textLink" href="www.vigneshm.com">vigzmv</a>
                 &nbsp;&nbsp;
             </div>
         );

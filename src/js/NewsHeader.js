@@ -10,8 +10,8 @@ function getStories(storiesName) {
             <div className="loading">
                 <img className="gears" src="imgs/gears.gif"/>
             </div>
-        </div>,
-     document.querySelector('.content'));
+        </div>
+    ,document.querySelector('.content'));
 
     const stories = [];
     let count = 30;
@@ -30,8 +30,7 @@ function getStories(storiesName) {
         .then(value => {
             stories.push(value);
             if (stories.length == count) {
-                render(
-                    <NewsList items={stories}/>, document.querySelector('.content'));
+                render(<NewsList items={stories}/>, document.querySelector('.content'));
             }
             return value;
         }));

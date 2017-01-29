@@ -4,8 +4,8 @@ var webpack = require('webpack');
 module.exports = {
     cache: false,
     debug: false,
-    // devtool: 'eval-source-map',
-    devtool: 'eval',
+    devtool: 'cheap-module-source-map',
+    // devtool: 'eval',
 
     context: path.join(__dirname, 'src', 'js'),
     entry: [

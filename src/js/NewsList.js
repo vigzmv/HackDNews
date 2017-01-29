@@ -6,7 +6,7 @@ export default class NewsList extends React.Component {
     render() {
         return (
             <div className="newsList">
-                <NewsHeader/>
+                <NewsHeader storiesName={this.props.storiesName}/>
                 <div className="newsList-newsItem">
                     {(this.props.items).map(function(item, index) {
                         return (<NewsItem key={item.id} item={item} rank={

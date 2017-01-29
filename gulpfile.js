@@ -2,7 +2,6 @@ var browserSync = require('browser-sync').create();
 var gulp = require('gulp');
 var pug = require('gulp-pug');
 var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackConfig = require('./webpack.config');

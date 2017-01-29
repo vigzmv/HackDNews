@@ -13,6 +13,8 @@ function getStories(storiesName) {
         </div>
     ,document.querySelector('.content'));
 
+    document.querySelector('#'+storiesName).classList.add("bold");
+
     const stories = [];
     let count = 30;
 
@@ -29,9 +31,7 @@ function getStories(storiesName) {
         })
         .then(value => {
             stories.push(value);
-            if (stories.length == count) {
-                render(<NewsList items={stories}/>, document.querySelector('.content'));
-            }
+                render(<NewsList items={stories} storiesName={storiesName}/>, document.querySelector('.content'));
             return value;
         }));
     });
@@ -49,8 +49,8 @@ export default class NewsHeader extends React.Component {
     getTitle() {
         return (
             <div className="newsHeader-title">
-                <a className="newsHeader-textLink" href="https://vigneshm.com/HackDNews/">
-                    HackDNews</a>
+                <a className="newsHeader-textLink HackDNews" href="https://vigneshm.com/HackDNews/">
+                    HackDNews </a>
             </div>
         );
     }
@@ -85,12 +85,13 @@ export default class NewsHeader extends React.Component {
             }
         ];
 
+        const storiesName = this.props.storiesName;
         // href={"https://news.ycombinator.com/" + navLink.url}
         return (
             <div className="newsHeader-nav">
                 {navLinks.map(function(navLink) {
                     return (
-                        <a key={navLink.url} className="newsHeader-navLink newsHeader-textLink" onClick={getStories.bind(null, navLink.storiesName)} href="#">
+                        <a id={navLink.storiesName} key={navLink.url} className={storiesName!=navLink.storiesName? "newsHeader-navLink newsHeader-textLink": "newsHeader-navLink newsHeader-textLink bold"} onClick={getStories.bind(null, navLink.storiesName)} href="#">
                             {navLink.name}
                         </a>
                     );

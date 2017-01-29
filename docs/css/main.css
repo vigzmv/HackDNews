@@ -2,6 +2,9 @@ body {
   font-family: Verdana, sans-serif;
   background-color: #f6f6ef; }
 
+.bold {
+  font-weight: 900; }
+
 .newsHeader {
   width: 100%;
   height: 28px;
@@ -44,7 +47,8 @@ newsHeader-navLink newsHeader-textLink:hover {
   margin-left: 10px; }
 
 .newsHeader-navLink:not(:first-child)::before {
-  content: ' | '; }
+  content: ' |  ';
+  font-weight: 100; }
 
 .newsHeader-login {
   margin-right: 5px; }
@@ -96,3 +100,6 @@ newsHeader-navLink newsHeader-textLink:hover {
   margin-right: auto;
   width: 100%;
   margin-top: 44px; }
+
+.HackDNews {
+  font-size: 18px; }

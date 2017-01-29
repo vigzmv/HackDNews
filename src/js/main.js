@@ -5,7 +5,7 @@ import NewsHeader from './NewsHeader.js'
 
 render(
     <div>
-        <NewsHeader/>
+        <NewsHeader storiesName={"topstories"}/>
         <div className="loading">
             <img className="gears" src="imgs/gears.gif"/>
         </div>
@@ -30,9 +30,7 @@ fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
     })
     .then(value => {
         stories.push(value);
-        if (stories.length == 30) {
-            render(<NewsList items={stories}/>, document.querySelector('.content'));
-        }
+            render(<NewsList items={stories} storiesName={"topstories"}/>, document.querySelector('.content'));
         return value;
     }));
 });
